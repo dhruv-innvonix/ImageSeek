@@ -1,0 +1,49 @@
+# Python-related
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual environment
+venv/
+env/
+.env
+
+# Logs
+logs/
+*.log
+
+# Migrations
+migrations/
+alembic_version.py
+
+# Docker files
+docker-compose.override.yml
+docker-compose.yml
+docker/milvus/
+
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Pytest cache
+.cache/
+*.egg-info/
+
+# IDE specific
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Compiled files
+*.so
+*.dylib
+*.dll
+
+# Media files
+static/uploads/
+
+# piplock
+Pipfile.lock
