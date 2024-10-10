@@ -15,7 +15,13 @@ def get_collection_schema():
         FieldSchema(name="image_id", dtype=DataType.VARCHAR, max_length=255, is_primary=True, auto_id=False),
         FieldSchema(name="embedding", dtype=DataType.FLOAT_VECTOR, dim=512),  # Adjust the dim based on your embedding size
         FieldSchema(name="category", dtype=DataType.VARCHAR, max_length=100),  # Optional: to store category
-        FieldSchema(name="image_path", dtype=DataType.VARCHAR, max_length=500)  # New field to store image path
+        FieldSchema(name="title", dtype=DataType.VARCHAR, max_length=100, is_nullable=True),
+        FieldSchema(name="description", dtype=DataType.VARCHAR, max_length=500, is_nullable=True),
+        FieldSchema(name="tags", dtype=DataType.VARCHAR, max_length=200, is_nullable=True),
+        FieldSchema(name="location", dtype=DataType.VARCHAR, max_length=100, is_nullable=True),
+        FieldSchema(name="date_taken", dtype=DataType.VARCHAR, max_length=20, is_nullable=True),
+        FieldSchema(name="uploader", dtype=DataType.VARCHAR, max_length=50, is_nullable=True),
+        FieldSchema(name="quality_rating", dtype=DataType.FLOAT, is_nullable=True),
     ]
     return CollectionSchema(fields=fields, description="Image embeddings collection schema")
 

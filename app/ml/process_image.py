@@ -10,10 +10,15 @@ from transformers import CLIPModel, CLIPProcessor
 model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
+# TODO: Define your categories. we have to collect all categories
+categories = ["fruit", "sports", "vehicle", "animal", "vegetable"]
+
 def process_image(image_bytes):
     """Process the uploaded image and return its embedding."""
     image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
     inputs = processor(images=image, return_tensors="pt")
+    # inputs = processor(text=classes, images=images, return_tensors="pt", padding=True, do_convert_rgb=False)
+
     with torch.no_grad():
         embeddings = model.get_image_features(**inputs)
     return embeddings.numpy().tolist()  # Convert to list for Milvus
